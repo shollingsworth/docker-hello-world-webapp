@@ -1,0 +1,20 @@
+---
+services:
+  build_app:
+    platform: linux/amd64
+    image: webapp
+    pull_policy: never
+    network_mode: bridge
+    build:
+      dockerfile: Dockerfile
+      context: .
+
+  webapp:
+    platform: linux/amd64
+    image: webapp
+    pull_policy: never
+    restart: always
+    depends_on:
+      - build_app
+    ports:
+      - 3000:3000
