@@ -2,7 +2,7 @@
 services:
   # build image first
   webapp:
-    image: webapp
+    image: hello-webapp
     pull_policy: never
     restart: always
     ports:
